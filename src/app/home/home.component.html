@@ -1,0 +1,26 @@
+<form #userForm="ngForm" (ngSubmit)="userForm.form.valid && Submit(userForm)">
+    <div>
+        <label for="">UserNAME</label>
+        <input type="text"  id="name" [(ngModel)]="name" #userName = "ngModel" name="name" placeholder="userName" required>
+
+        {{userForm.errors}}
+    </div>
+    <div>
+        <label for="">Emaill</label>
+        <input type="email" name="email" [(ngModel)]="email" #userEmail = "ngModel" placeholder="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+        <div *ngIf = "userForm.submitted && userEmail.errors">
+            {{userEmail.errors.required}}
+            <p *ngIf = "userEmail.errors.required">Email Is required</p>
+            <p *ngIf = "userEmail.errors.pattern">enter Email</p>
+        </div>
+    
+    </div>
+    <div>
+        <label for="">DropDown</label>
+        <select name="state" id="" [(ngModel)]="state" #userState="ngModel">
+            <option value="1">TN</option>
+            <option value="2">AP</option>
+        </select>
+    </div>
+    <button type="submit">Submit</button>
+</form>
