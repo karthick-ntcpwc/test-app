@@ -1,0 +1,27 @@
+<form [formGroup]="userForm" (ngSubmit)="onSub()">
+    <mat-form-field appearance="fill">
+        <mat-label>firstName</mat-label>
+        <input formControlName="firstName" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>lastName</mat-label>
+        <input formControlName="lastName" matInput>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>password</mat-label>
+        <input type="password" formControlName="password" matInput>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="fill">
+        <mat-label>email</mat-label>
+        <input type="email" formControlName="email" matInput>
+      </mat-form-field>
+      {{userForm.valid}}
+      <br>
+      <button mat-button color="primary" type="submit" [disabled]="!userForm.valid"> submit</button>
+
+</form>
